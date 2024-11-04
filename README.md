@@ -2,6 +2,7 @@
 <details>
 <summary>Tugas 7</summary>
 ## Proses Pengerjaan Tugas
+    
 1. Membuat proyek flutter baru dengan nama <b>Teleplay</b>
 
 ```
