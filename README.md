@@ -1,6 +1,8 @@
-# Teleplay
+## Teleplay
+
 <details>
 <summary>Tugas 7</summary>
+    
 ## Proses Pengerjaan Tugas
     
 1. Membuat proyek flutter baru dengan nama <b>Teleplay</b>
@@ -183,9 +185,11 @@ child: InkWell(
 * SnackBar: widget ini untuk memberikan notifikasi sementara di bagian bawah halaman.
 
 3. Apa fungsi dari setState()? Jelaskan variabel apa saja yang dapat terdampak dengan fungsi tersebut.
+   
 setState() berguana untuk memberi tahu framework bahwa ada objek dengan internal state yang berubah sehingga memerlukan pembaruan tampilan (UI). Fungsi ini menyebabkan framework untuk build state objek. Semua variabel yang merupakan bagian dari State class dari widget yang memanggil setState() dapat terdampak. Contohnya variabel yang mengubah data tampilan dan variabel yang mengatur kondisi UI.
 
-4. Jelaskan perbedaan antara const dengan final.
+5. Jelaskan perbedaan antara const dengan final.
+   
 * final digunakan ketika variabel hanya diinisialisasi sekali tetapi nilainya baru diketahui saat runtime.
 * const keyword untuk menetapkan variabel konstan sejak waktu kompilasi. Penggunaan const pada suatu objek, menjadikan seluruh status mendalam objek benar-benar tetap pada waktu kompilasi dan objek dengan status ini akan dianggap beku dan sepenuhnya tidak dapat diubah. Objek yang dibuat menggunakan const bersifat immutable.
 
