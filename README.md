@@ -188,7 +188,7 @@ child: InkWell(
    
 setState() berguana untuk memberi tahu framework bahwa ada objek dengan internal state yang berubah sehingga memerlukan pembaruan tampilan (UI). Fungsi ini menyebabkan framework untuk build state objek. Semua variabel yang merupakan bagian dari State class dari widget yang memanggil setState() dapat terdampak. Contohnya variabel yang mengubah data tampilan dan variabel yang mengatur kondisi UI.
 
-5. Jelaskan perbedaan antara const dengan final.
+4. Jelaskan perbedaan antara const dengan final.
    
 * final digunakan ketika variabel hanya diinisialisasi sekali tetapi nilainya baru diketahui saat runtime.
 * const keyword untuk menetapkan variabel konstan sejak waktu kompilasi. Penggunaan const pada suatu objek, menjadikan seluruh status mendalam objek benar-benar tetap pada waktu kompilasi dan objek dengan status ini akan dianggap beku dan sepenuhnya tidak dapat diubah. Objek yang dibuat menggunakan const bersifat immutable.
