@@ -491,7 +491,11 @@ if (item.name == "Tambah Produk") {
 
 ## Menjawab Pertanyaan
 1. Apa kegunaan const di Flutter? Jelaskan apa keuntungan ketika menggunakan const pada kode Flutter. Kapan sebaiknya kita menggunakan const, dan kapan sebaiknya tidak digunakan? <br>
-Const digunakan dalam flutter untuk menghindari pembuatan widget yang tidak penting, untuk meningkatkan performance dari widget tree, dan untuk memastikan immutability. Const dipakai ketika value dari suatu variabel diketahui ketika `compile time` dan tidak pernah berubah. `Const` sebaiknya tidak digunakan untuk variabel yang valuenya dapat berubah.
+Const digunakan dalam flutter untuk menghindari pembuatan widget berulang, untuk meningkatkan performance dari widget tree, dan untuk memastikan immutability. <br>
+Keuntungan menggunakan `const`:
+* Optimalisasi performa: Dengan const, Flutter tidak perlu membuat ulang widget setiap kali terjadi rebuild karena widget tersebut dianggap tidak berubah.
+* Pengurangan penggunaan memori: Objek const disimpan di memori yang di-cache dan tidak perlu dibuat ulang. <br><br>
+Const dipakai ketika value dari suatu variabel diketahui ketika `compile time` dan tidak pernah berubah. `Const` sebaiknya tidak digunakan untuk variabel yang valuenya dapat berubah.
 
 2. Jelaskan dan bandingkan penggunaan Column dan Row pada Flutter. Berikan contoh implementasi dari masing-masing layout widget ini! <br>
 Row adalah widget yang dapat digunakan untuk menempatkan widget-widget lainnya secara horizontal, sedangkan Column adalah widget yang dapat digunakan untuk menempatkan widget-widget lainnya secara vertikal. Perbedaan antara Row dan Column dalam flutter adalah tata letak yang horizontal/vertikal dalam sebuah aplikasi Flutter.
@@ -499,21 +503,25 @@ Row adalah widget yang dapat digunakan untuk menempatkan widget-widget lainnya s
 Contoh implementasinya:
 ```
 Row(
-  children:[
-    Text('Element 1'),
-    Text('Element 2'),
-    Text('Element 3'),
-  ]
-)
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  children: [
+    InfoCard(title: 'NPM', content: npm),
+    InfoCard(title: 'Name', content: name),
+    InfoCard(title: 'Class', content: className),
+  ],
+),
 ```
 ```
-Column(
-  children:[
-    Text('Element 1'),
-    Text('Element 2'),
-    Text('Element 3'),
-  ]
-)
+child: Column(
+  children: [
+    Text(
+      title,
+      style: const TextStyle(fontWeight: FontWeight.bold),
+    ),
+    const SizedBox(height: 8.0),
+    Text(content),
+  ],
+),
 
 ```
 
@@ -525,7 +533,7 @@ Elemen input pada halaman form yang telah saya buat adalah TextFormField dan Dro
 * Switch: Cocok untuk input on/off, bisa digunakan untuk fitur seperti "produk tersedia/tidak tersedia".
 
 4. Bagaimana cara kamu mengatur tema (theme) dalam aplikasi Flutter agar aplikasi yang dibuat konsisten? Apakah kamu mengimplementasikan tema pada aplikasi yang kamu buat? <br>
-Agar konsisten, saya menggunakan ThemeData di MaterialApp dan menentukan ColorScheme dan TextTheme. Berikut kode untuk peng-implementasian tema pada aplikasi yang saya buat.
+Agar konsisten, saya menggunakan ThemeData di MaterialApp dan menentukan ColorScheme dan TextTheme. Berikut kode untuk mengimplementasian tema pada aplikasi yang saya buat.
 
 ```
 theme: ThemeData(
