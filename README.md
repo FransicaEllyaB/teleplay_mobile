@@ -498,7 +498,7 @@ Keuntungan menggunakan `const`:
 Const dipakai ketika value dari suatu variabel diketahui ketika `compile time` dan tidak pernah berubah. `Const` sebaiknya tidak digunakan untuk variabel yang valuenya dapat berubah.
 
 2. Jelaskan dan bandingkan penggunaan Column dan Row pada Flutter. Berikan contoh implementasi dari masing-masing layout widget ini! <br>
-Row adalah widget yang dapat digunakan untuk menempatkan widget-widget lainnya secara horizontal, sedangkan Column adalah widget yang dapat digunakan untuk menempatkan widget-widget lainnya secara vertikal. Perbedaan antara Row dan Column dalam flutter adalah tata letak yang horizontal/vertikal dalam sebuah aplikasi Flutter.
+Row adalah widget yang dapat mengatur widget anak secara horizontal (dari kiri ke kanan), sedangkan Column adalah widge yang dapat mengatur widget anak secara vertikal (dari atas ke bawah). Perbandingan penggunaan adalah Row dapat digunakan untuk menempatkan widget-widget lainnya secara horizontal dan Column dapat digunakan untuk menempatkan widget-widget lainnya secara vertikal. Perbedaan antara Row dan Column dalam flutter adalah tata letak yang horizontal/vertikal dalam sebuah aplikasi Flutter.
 
 Contoh implementasinya:
 ```
