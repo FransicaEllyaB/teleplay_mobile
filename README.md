@@ -314,42 +314,42 @@ flutter pub add http
 
 Kita perlu membuat model agar <br>
 -> Struktur data yang konsisten
-Dengan model membantu memastikan bawa struktur data yang diterima atau dikirim ke API selalu sesuai yang diharapkan.
+Dengan model membantu memastikan bawa struktur data yang diterima atau dikirim ke API selalu sesuai yang diharapkan. <br>
 -> Validasi dan keamanan <br>
-Model membantu memastikan bahwa atribut tertentu dari JSON yang diterima atau dikirim sehingga menimalkan risiko kebocoran data sensitif.
+Model membantu memastikan bahwa atribut tertentu dari JSON yang diterima atau dikirim sehingga menimalkan risiko kebocoran data sensitif. <br>
 -> Kemudahan pemrograman <br>
-Model membuat kode lebih terstruktur dan dan mudah dibaca.
+Model membuat kode lebih terstruktur dan dan mudah dibaca. <br>
 -> Pemetaan data secara otomatis <br>
 Model menyebabkan JSON dapat langsung memetakan JSON ;angsung ke objek secara otomatis <br><br>
 
-Jika model tidak ada, tidak selalu membuat error, tetapi tidak selalu tergantung dengan
+Jika model tidak ada, tidak selalu membuat error, tetapi tidak selalu tergantung dengan <br>
 -> Ukuran dan kompleksitas data JSON <br>
-Jika ukuran JSON sangat besar, mengelola data secara manual dapat menyebabkan rentan terhadap kesalahan
+Jika ukuran JSON sangat besar, mengelola data secara manual dapat menyebabkan rentan terhadap kesalahan <br>
 -> Error Parsing atau Access <br>
-Tanpa modek, pengaksesan data dapat menyebabkan crash, seperti KeyError di Python atau NullPointerException.
+Tanpa modek, pengaksesan data dapat menyebabkan crash, seperti KeyError di Python atau NullPointerException. <br>
 -> Perubahan API <br>
 Jika struktut JSON berubah di API, kode akan sulit menyesuaikan dengan perubahan sehingga dibutuhkan model. <br><br>
 
 2. <b>Jelaskan fungsi dari library http yang sudah kamu implementasikan pada tugas ini</b><br>
 
-Fungsi dari library http adalah sebagai pengelola komunikasi antara aplikasi flutter dengan server, library ini untuk menyediakan metode untuk mengirimkan sebuah request ke server dan menerima respon dari server yang umumnya berformat JSON. Fungsi dari library http adalah 
+Fungsi dari library http adalah sebagai pengelola komunikasi antara aplikasi flutter dengan server, library ini untuk menyediakan metode untuk mengirimkan sebuah request ke server dan menerima respon dari server yang umumnya berformat JSON. Fungsi dari library http adalah <br>
 
-** Melakukan HTTP Request
-Library http memungkinkan aplikasi untuk mengirim berbagai jenis request HTTP seperti GET (mengambil data dari server), POST/PUT (mengirimkan data ke server), dan DELETE (menghapus data dari server).
+** Melakukan HTTP Request <br>
+Library http memungkinkan aplikasi untuk mengirim berbagai jenis request HTTP seperti GET (mengambil data dari server), POST/PUT (mengirimkan data ke server), dan DELETE (menghapus data dari server). <br>
 
-** Mengirimkan data ke server.
-Library http mendukung pengiriman data dalam berbagai format. Data dikirim bersama body request ke server, sering kali dalam metode POST atau PUT.
+** Mengirimkan data ke server. <br>
+Library http mendukung pengiriman data dalam berbagai format. Data dikirim bersama body request ke server, sering kali dalam metode POST atau PUT. <br>
 
-** Menerima dan memproses respon server
-Library http memungkinkan untuk membaca kode status HTTP, mengakses data respon, dan memproses respon untuk ditampilkan dalam aplikasi.
+** Menerima dan memproses respon server <br>
+Library http memungkinkan untuk membaca kode status HTTP, mengakses data respon, dan memproses respon untuk ditampilkan dalam aplikasi. <br>
 
-** Error Handling
-Library http dapat menangani error, seperti timout, kegagalan jarinagan, dan respon tidak sesuai format. 
+** Error Handling <br>
+Library http dapat menangani error, seperti timout, kegagalan jarinagan, dan respon tidak sesuai format. <br>
 
-** Menyediakan Header dan Authentication
-Library http mendukung penambahan header pada setiap request untuk keperluan otentikasi atau kebutuhan spesifik lainnya, seperti token API, tipe konten, atau pengaturan khusus lainnya.
+** Menyediakan Header dan Authentication <br>
+Library http mendukung penambahan header pada setiap request untuk keperluan otentikasi atau kebutuhan spesifik lainnya, seperti token API, tipe konten, atau pengaturan khusus lainnya. <br>
 
-3. <b>  Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.</b>
+3. <b>  Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.</b> <br>
 
 CookieRequest adalah suatu mekanisme atau kelas yang bertugas mengelola sesi autentikasi pengguna melalui cookie, baik untuk pengiriman maupun penerimaan cookie saat berkomunikasi dengan server. Fungsinya meliputi:
 
