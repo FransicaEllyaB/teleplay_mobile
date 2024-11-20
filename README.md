@@ -364,7 +364,7 @@ Dalam sistem yang menggunakan cookie sebagai mekanisme autentikasi (stateful aut
 
 Instance CookieRequest perlu dibagikan ke semua komponen karena Konsistensi Sesi Pengguna, Konsistensi Sesi Pengguna, Pengelolaan Cookie Terpusat Dengan instance yang dibagikan, Efisiensi, dan Kemudahan Integrasi dengan Backend. 
 
-4. <b> Jelaskan mekanisme pengiriman data mulai dari input hingga dapat ditampilkan pada Flutter.</b>
+4. <b> Jelaskan mekanisme pengiriman data mulai dari input hingga dapat ditampilkan pada Flutter.</b><br>
 * Input Data di Flutter
 Pengguna memasukkan data melalui antarmuka (form atau widget) di aplikasi Flutter. Komponen utama yang dipakai adalah TextField atau TextFormField untuk input teks. Tombol (Button) untuk mengirimkan data.
 Pengolahan Input yang digunakan adalah data input pengguna diambil melalui pengendali (controller) seperti TextEditingController dan data yang diambil diverifikasi (validasi input) sebelum dikirim ke backend.
@@ -378,15 +378,15 @@ Protokol yang Digunakan, adalah HTTP/HTTPS (biasanya HTTPS untuk keamanan). Lalu
 * Handle Error yang dilakukan agar aplikasi tidak crash.
 * Pengguanaan statte management untuk uodate UI. Dalam aplikasi yang kompleks, state management seperti Provider atau Riverpod digunakan untuk menyimpan data yang diterima dari server, lalu memperbarui UI secara otomatis.
 
-5. <b>Jelaskan mekanisme autentikasi dari login, register, hingga logout. Mulai dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.</b>
-(1) Register:
-Pengguna mengisi data di Flutter → Django memvalidasi dan menyimpan data pengguna → Akun terdaftar.
-(2) Login:
-Flutter mengirimkan kredensial → Django memvalidasi → Django mengirimkan token ke Flutter → Token disimpan.
-(3) Akses Menu:
-Token digunakan pada setiap permintaan → Django memverifikasi token → Data dikirimkan ke Flutter.
-(4) Logout:
-Flutter menghapus token lokal → Django menghapus token di server.
-Mekanisme ini memastikan keamanan autentikasi dan kenyamanan pengguna selama menggunakan aplikasi.
+5. <b>Jelaskan mekanisme autentikasi dari login, register, hingga logout. Mulai dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.</b><br>
+(1) Register: <br>
+Pengguna mengisi data di Flutter → Django memvalidasi dan menyimpan data pengguna → Akun terdaftar. <br>
+(2) Login:<br>
+Flutter mengirimkan kredensial → Django memvalidasi → Django mengirimkan token ke Flutter → Token disimpan.<br>
+(3) Akses Menu:<br>
+Token digunakan pada setiap permintaan → Django memverifikasi token → Data dikirimkan ke Flutter.<br>
+(4) Logout:<br>
+Flutter menghapus token lokal → Django menghapus token di server.<br>
+Mekanisme ini memastikan keamanan autentikasi dan kenyamanan pengguna selama menggunakan aplikasi.<br>
 
 </details>
