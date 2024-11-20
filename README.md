@@ -312,23 +312,23 @@ flutter pub add http
 ## Menjawab Pertanyaan
 1. <b>Jelaskan mengapa kita perlu membuat model untuk melakukan pengambilan ataupun pengiriman data JSON? Apakah akan terjadi error jika kita tidak membuat model terlebih dahulu?</b>
 
-Kita perlu membuat model agar 
+Kita perlu membuat model agar <b>
 -> Struktur data yang konsisten
 Dengan model membantu memastikan bawa struktur data yang diterima atau dikirim ke API selalu sesuai yang diharapkan.
--> Validasi dan keamanan
+-> Validasi dan keamanan <b>
 Model membantu memastikan bahwa atribut tertentu dari JSON yang diterima atau dikirim sehingga menimalkan risiko kebocoran data sensitif.
--> Kemudahan pemrograman
+-> Kemudahan pemrograman <b>
 Model membuat kode lebih terstruktur dan dan mudah dibaca.
--> Pemetaan data secara otomatis
-Model menyebabkan JSON dapat langsung memetakan JSON ;angsung ke objek secara otomatis
+-> Pemetaan data secara otomatis <b>
+Model menyebabkan JSON dapat langsung memetakan JSON ;angsung ke objek secara otomatis <b><b>
 
 Jika model tidak ada, tidak selalu membuat error, tetapi tidak selalu tergantung dengan
--> Ukuran dan kompleksitas data JSON
+-> Ukuran dan kompleksitas data JSON <b>
 Jika ukuran JSON sangat besar, mengelola data secara manual dapat menyebabkan rentan terhadap kesalahan
--> Error Parsing atau Access
+-> Error Parsing atau Access <b>
 Tanpa modek, pengaksesan data dapat menyebabkan crash, seperti KeyError di Python atau NullPointerException.
--> Perubahan API
-Jika struktut JSON berubah di API, kode akan sulit menyesuaikan dengan perubahan sehingga dibutuhkan model.
+-> Perubahan API <b>
+Jika struktut JSON berubah di API, kode akan sulit menyesuaikan dengan perubahan sehingga dibutuhkan model. <b><b>
 
 2. <b>Jelaskan fungsi dari library http yang sudah kamu implementasikan pada tugas ini</b>
 
