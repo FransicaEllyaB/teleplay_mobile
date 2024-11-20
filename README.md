@@ -310,27 +310,27 @@ flutter pub add http
 10. Seorang user hanya dapat berinteraksi dengan produk yang terasosiaso dengan pengguna yang login.
 
 ## Menjawab Pertanyaan
-1. <b>Jelaskan mengapa kita perlu membuat model untuk melakukan pengambilan ataupun pengiriman data JSON? Apakah akan terjadi error jika kita tidak membuat model terlebih dahulu?</b>
+1. <b>Jelaskan mengapa kita perlu membuat model untuk melakukan pengambilan ataupun pengiriman data JSON? Apakah akan terjadi error jika kita tidak membuat model terlebih dahulu?</b><br>
 
-Kita perlu membuat model agar <b>
+Kita perlu membuat model agar <br>
 -> Struktur data yang konsisten
 Dengan model membantu memastikan bawa struktur data yang diterima atau dikirim ke API selalu sesuai yang diharapkan.
--> Validasi dan keamanan <b>
+-> Validasi dan keamanan <br>
 Model membantu memastikan bahwa atribut tertentu dari JSON yang diterima atau dikirim sehingga menimalkan risiko kebocoran data sensitif.
--> Kemudahan pemrograman <b>
+-> Kemudahan pemrograman <br>
 Model membuat kode lebih terstruktur dan dan mudah dibaca.
--> Pemetaan data secara otomatis <b>
-Model menyebabkan JSON dapat langsung memetakan JSON ;angsung ke objek secara otomatis <b><b>
+-> Pemetaan data secara otomatis <br>
+Model menyebabkan JSON dapat langsung memetakan JSON ;angsung ke objek secara otomatis <br><br>
 
 Jika model tidak ada, tidak selalu membuat error, tetapi tidak selalu tergantung dengan
--> Ukuran dan kompleksitas data JSON <b>
+-> Ukuran dan kompleksitas data JSON <br>
 Jika ukuran JSON sangat besar, mengelola data secara manual dapat menyebabkan rentan terhadap kesalahan
--> Error Parsing atau Access <b>
+-> Error Parsing atau Access <br>
 Tanpa modek, pengaksesan data dapat menyebabkan crash, seperti KeyError di Python atau NullPointerException.
--> Perubahan API <b>
-Jika struktut JSON berubah di API, kode akan sulit menyesuaikan dengan perubahan sehingga dibutuhkan model. <b><b>
+-> Perubahan API <br>
+Jika struktut JSON berubah di API, kode akan sulit menyesuaikan dengan perubahan sehingga dibutuhkan model. <br><br>
 
-2. <b>Jelaskan fungsi dari library http yang sudah kamu implementasikan pada tugas ini</b>
+2. <b>Jelaskan fungsi dari library http yang sudah kamu implementasikan pada tugas ini</b><br>
 
 Fungsi dari library http adalah sebagai pengelola komunikasi antara aplikasi flutter dengan server, library ini untuk menyediakan metode untuk mengirimkan sebuah request ke server dan menerima respon dari server yang umumnya berformat JSON. Fungsi dari library http adalah 
 
