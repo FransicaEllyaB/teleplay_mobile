@@ -279,3 +279,114 @@ Method `pop()` menghapus route yang sedang ditampilkan kepada pengguna (atau dal
 Method `pushReplacement()` menghapus route yang sedang ditampilkan kepada pengguna dan menggantinya dengan suatu route. 
 
 </details>
+
+<details>
+<summary>Tugas 9</summary>
+
+## Proses Pengerjaan Tugas
+1. Menambahkan depedensi yang dibutuhkan, seperti 
+```
+flutter pub add provider
+flutter pub add pbp_django_auth
+flutter pub add http
+```
+
+2. Menambahkan `CookieRequest` library ke semua child widgets dengan `Provider`.
+
+3. Membuat `login.dart` pada subdirektori `screens` untuk menampilkan form login.
+
+4. Mengarahkan `main.dart` ke `login.dart`
+
+5. Membuat `video_entry.dart` pada models
+
+6. Penerapan Fetch data dari django untuk ditampilkan ke Flutter
+
+7. Membuat `list_videoentry.dart` ke subdirektori `screens` untuk menampilkan list seluruh produk dengan masing masing produk memiliki name, price, descriprtion, imageURL, dan durasi.
+
+8. Melakukan perubahan pada subdirektori `screens` untuk mengubah input yang diterima ke dalam JSON kemudian mengirimnya ke server sehingga dapat dilakukan fetch.
+
+9. Melakukan perubahan pada `menu.dart` agar tombol logout dapat berfungsi untuk ke luar halaman, yaitu halaman login.
+
+10. Seorang user hanya dapat berinteraksi dengan produk yang terasosiaso dengan pengguna yang login.
+
+## Menjawab Pertanyaan
+1. <b>Jelaskan mengapa kita perlu membuat model untuk melakukan pengambilan ataupun pengiriman data JSON? Apakah akan terjadi error jika kita tidak membuat model terlebih dahulu?</b>
+
+Kita perlu membuat model agar 
+-> Struktur data yang konsisten
+Dengan model membantu memastikan bawa struktur data yang diterima atau dikirim ke API selalu sesuai yang diharapkan.
+-> Validasi dan keamanan
+Model membantu memastikan bahwa atribut tertentu dari JSON yang diterima atau dikirim sehingga menimalkan risiko kebocoran data sensitif.
+-> Kemudahan pemrograman
+Model membuat kode lebih terstruktur dan dan mudah dibaca.
+-> Pemetaan data secara otomatis
+Model menyebabkan JSON dapat langsung memetakan JSON ;angsung ke objek secara otomatis
+
+Jika model tidak ada, tidak selalu membuat error, tetapi tidak selalu tergantung dengan
+-> Ukuran dan kompleksitas data JSON
+Jika ukuran JSON sangat besar, mengelola data secara manual dapat menyebabkan rentan terhadap kesalahan
+-> Error Parsing atau Access
+Tanpa modek, pengaksesan data dapat menyebabkan crash, seperti KeyError di Python atau NullPointerException.
+-> Perubahan API
+Jika struktut JSON berubah di API, kode akan sulit menyesuaikan dengan perubahan sehingga dibutuhkan model.
+
+2. <b>Jelaskan fungsi dari library http yang sudah kamu implementasikan pada tugas ini</b>
+
+Fungsi dari library http adalah sebagai pengelola komunikasi antara aplikasi flutter dengan server, library ini untuk menyediakan metode untuk mengirimkan sebuah request ke server dan menerima respon dari server yang umumnya berformat JSON. Fungsi dari library http adalah 
+
+** Melakukan HTTP Request
+Library http memungkinkan aplikasi untuk mengirim berbagai jenis request HTTP seperti GET (mengambil data dari server), POST/PUT (mengirimkan data ke server), dan DELETE (menghapus data dari server).
+
+** Mengirimkan data ke server.
+Library http mendukung pengiriman data dalam berbagai format. Data dikirim bersama body request ke server, sering kali dalam metode POST atau PUT.
+
+** Menerima dan memproses respon server
+Library http memungkinkan untuk membaca kode status HTTP, mengakses data respon, dan memproses respon untuk ditampilkan dalam aplikasi.
+
+** Error Handling
+Library http dapat menangani error, seperti timout, kegagalan jarinagan, dan respon tidak sesuai format. 
+
+** Menyediakan Header dan Authentication
+Library http mendukung penambahan header pada setiap request untuk keperluan otentikasi atau kebutuhan spesifik lainnya, seperti token API, tipe konten, atau pengaturan khusus lainnya.
+
+3. <b>  Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.</b>
+
+CookieRequest adalah suatu mekanisme atau kelas yang bertugas mengelola sesi autentikasi pengguna melalui cookie, baik untuk pengiriman maupun penerimaan cookie saat berkomunikasi dengan server. Fungsinya meliputi:
+
+* Mengelola Sesi Pengguna
+CookieRequest memungkinkan aplikasi untuk menyimpan informasi sesi pengguna menggunakan cookie yang dikirim oleh server, seperti session ID atau token autentikasi. Hal ini memastikan bahwa pengguna tetap terautentikasi selama sesi berlangsung tanpa perlu login berulang kali.
+
+* Otomasi Manajemen Cookie
+CookieRequest mempermudah pengelolaan cookie di aplikasi Flutter tanpa perlu mengelola cookie secara manual.
+
+* Mendukung Otentikasi Stateful
+Dalam sistem yang menggunakan cookie sebagai mekanisme autentikasi (stateful authentication), server menyimpan status pengguna berdasarkan session ID yang terdapat pada cookie. CookieRequest memastikan bahwa cookie ini selalu dikirim dalam setiap permintaan yang membutuhkan autentikasi.
+
+Instance CookieRequest perlu dibagikan ke semua komponen karena Konsistensi Sesi Pengguna, Konsistensi Sesi Pengguna, Pengelolaan Cookie Terpusat Dengan instance yang dibagikan, Efisiensi, dan Kemudahan Integrasi dengan Backend. 
+
+4. <b> Jelaskan mekanisme pengiriman data mulai dari input hingga dapat ditampilkan pada Flutter.</b>
+* Input Data di Flutter
+Pengguna memasukkan data melalui antarmuka (form atau widget) di aplikasi Flutter. Komponen utama yang dipakai adalah TextField atau TextFormField untuk input teks. Tombol (Button) untuk mengirimkan data.
+Pengolahan Input yang digunakan adalah data input pengguna diambil melalui pengendali (controller) seperti TextEditingController dan data yang diambil diverifikasi (validasi input) sebelum dikirim ke backend.
+* Validasi Data Input Sebelum data dikirimkan, biasanya dilakukan validasi untuk memastikan input sesuai dengan persyaratan.
+* Serialisasi Data Data yang diambil dari input diubah menjadi format yang dapat dikirim ke server.
+* Pengiriman Data ke Backend
+Flutter mengirimkan data ke backend melalui HTTP Request, biasanya menggunakan metode POST atau GET. 
+Protokol yang Digunakan, adalah HTTP/HTTPS (biasanya HTTPS untuk keamanan). Lalu, library HTTP di Flutter http digunakan untuk mengirimkan data ke server.
+* Pemrosesan Data di Server Setelah data diterima di server:
+* Parsing dan Menampilkan Respons di Flutter Setelah menerima respons, aplikasi Flutter
+* Handle Error yang dilakukan agar aplikasi tidak crash.
+* Pengguanaan statte management untuk uodate UI. Dalam aplikasi yang kompleks, state management seperti Provider atau Riverpod digunakan untuk menyimpan data yang diterima dari server, lalu memperbarui UI secara otomatis.
+
+5. <b>Jelaskan mekanisme autentikasi dari login, register, hingga logout. Mulai dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.</b>
+1. Register:
+Pengguna mengisi data di Flutter → Django memvalidasi dan menyimpan data pengguna → Akun terdaftar.
+2. Login:
+Flutter mengirimkan kredensial → Django memvalidasi → Django mengirimkan token ke Flutter → Token disimpan.
+3. Akses Menu:
+Token digunakan pada setiap permintaan → Django memverifikasi token → Data dikirimkan ke Flutter.
+4. Logout:
+Flutter menghapus token lokal → Django menghapus token di server.
+Mekanisme ini memastikan keamanan autentikasi dan kenyamanan pengguna selama menggunakan aplikasi.
+
+</details>

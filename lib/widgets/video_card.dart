@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:provider/provider.dart';
+import 'package:teleplay_mobile/screens/login.dart';
 import 'package:teleplay_mobile/screens/videoentry_form.dart';
+import 'package:teleplay_mobile/screens/list_videoentry.dart';
 
 class InfoCard extends StatelessWidget {
   final String title;
@@ -45,11 +49,12 @@ class ItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final request = context.watch<CookieRequest>();
     return Material(
       color: item.color,
       borderRadius: BorderRadius.circular(12),
       child: InkWell(
-        onTap: () {
+        onTap: () async {
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(SnackBar(
@@ -60,6 +65,33 @@ class ItemCard extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => const VideoEntryFormPage()));
+          } else if (item.name == "Lihat Daftar Produk") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const VideoEntryPage()),
+            );
+          } else if (item.name == "Logout") {
+            final response =
+                await request.logout("http://127.0.0.1:8000/auth/logout/");
+            String message = response["message"];
+            if (context.mounted) {
+              if (response['status']) {
+                String uname = response["username"];
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  content: Text("$message Sampai jumpa, $uname."),
+                ));
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginPage()),
+                );
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(message),
+                  ),
+                );
+              }
+            }
           }
         },
         // Container untuk menyimpan Icon dan Text

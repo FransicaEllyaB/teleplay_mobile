@@ -1,4 +1,8 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:provider/provider.dart';
+import 'package:teleplay_mobile/screens/menu.dart';
 import 'package:teleplay_mobile/widgets/left_drawer.dart';
 
 class VideoEntryFormPage extends StatefulWidget {
@@ -10,6 +14,7 @@ class VideoEntryFormPage extends StatefulWidget {
 
 class _VideoEntryFormPageState extends State<VideoEntryFormPage> {
   final _formKey = GlobalKey<FormState>();
+  late CookieRequest pbp;
   String _nama = "";
   int _amount = 0;
   int _price = 0;
@@ -22,6 +27,7 @@ class _VideoEntryFormPageState extends State<VideoEntryFormPage> {
 
   @override
   Widget build(BuildContext context) {
+    final request = context.watch<CookieRequest>();
     return Scaffold(
       appBar: AppBar(
         title: const Center(
@@ -255,83 +261,39 @@ class _VideoEntryFormPageState extends State<VideoEntryFormPage> {
                         Theme.of(context).colorScheme.primary,
                       ),
                     ),
-                    onPressed: () {
+                    onPressed: () async {
                       if (_formKey.currentState!.validate()) {
-                        setState(() {
-                          if (_hours == 0 && _minutes == 0 && _seconds == 0) {
-                            _durationError = "Pilih Durasi yang diinginkan";
+                        final response = await request.postJson(
+                          "http://127.0.0.1:8000/create-flutter/",
+                          jsonEncode(<String, String>{
+                            'name': _nama,
+                            'price': _price.toString(),
+                            'description': _description,
+                            'hours': _hours.toString(),
+                            'minutes': _minutes.toString(),
+                            'seconds': _seconds.toString(),
+                            'imageUrl': _imageUrl.toString(),
+                          }),
+                        );
+                        if (context.mounted) {
+                          if (response['status'] == 'success') {
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(const SnackBar(
+                              content: Text("Video baru berhasil disimpan!"),
+                            ));
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MyHomePage()),
+                            );
                           } else {
-                            _durationError = null;
-                            Duration duration = Duration(
-                              hours: _hours,
-                              minutes: _minutes,
-                              seconds: _seconds,
-                            );
-
-                            showDialog(
-                              context: context,
-                              builder: (context) {
-                                return AlertDialog(
-                                  title: const Text('Video berhasil tersimpan'),
-                                  content: SingleChildScrollView(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        // Display Image
-                                        if (_imageUrl.isNotEmpty)
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Center(
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(16.0),
-                                                child: Image.network(
-                                                  _imageUrl,
-                                                  height: 100,
-                                                  width: 100,
-                                                  fit: BoxFit.cover,
-                                                  errorBuilder: (context, error,
-                                                      stackTrace) {
-                                                    return const Text(
-                                                      "Failed to load image.",
-                                                      style: TextStyle(
-                                                          color: Colors.red),
-                                                    );
-                                                  },
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        Text('Nama: $_nama'),
-                                        Text('Amount: $_amount'),
-                                        Text('Harga: $_price'),
-                                        Text('Deskripsi: $_description'),
-                                        Text(
-                                          'Durasi: ${duration.inHours}h ${duration.inMinutes % 60}m ${duration.inSeconds % 60}s',
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  actions: [
-                                    TextButton(
-                                      child: const Text('OK'),
-                                      onPressed: () {
-                                        Navigator.pop(context);
-                                        _formKey.currentState!.reset();
-                                        setState(() {
-                                          _hours = 0;
-                                          _minutes = 0;
-                                          _seconds = 0;
-                                        });
-                                      },
-                                    ),
-                                  ],
-                                );
-                              },
-                            );
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(const SnackBar(
+                              content: Text(
+                                  "Terdapat kesalahan, silakan coba lagi."),
+                            ));
                           }
-                        });
+                        }
                       }
                     },
                     child: const Text(
