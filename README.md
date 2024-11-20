@@ -379,13 +379,13 @@ Protokol yang Digunakan, adalah HTTP/HTTPS (biasanya HTTPS untuk keamanan). Lalu
 * Pengguanaan statte management untuk uodate UI. Dalam aplikasi yang kompleks, state management seperti Provider atau Riverpod digunakan untuk menyimpan data yang diterima dari server, lalu memperbarui UI secara otomatis.
 
 5. <b>Jelaskan mekanisme autentikasi dari login, register, hingga logout. Mulai dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.</b>
-1. Register:
+(1) Register:
 Pengguna mengisi data di Flutter → Django memvalidasi dan menyimpan data pengguna → Akun terdaftar.
-2. Login:
+(2) Login:
 Flutter mengirimkan kredensial → Django memvalidasi → Django mengirimkan token ke Flutter → Token disimpan.
-3. Akses Menu:
+(3) Akses Menu:
 Token digunakan pada setiap permintaan → Django memverifikasi token → Data dikirimkan ke Flutter.
-4. Logout:
+(4) Logout:
 Flutter menghapus token lokal → Django menghapus token di server.
 Mekanisme ini memastikan keamanan autentikasi dan kenyamanan pengguna selama menggunakan aplikasi.
 
